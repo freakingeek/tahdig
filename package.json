@@ -1,0 +1,53 @@
+{
+  "name": "basalam-tahdig",
+  "displayName": "@Basalam/tahdig",
+  "description": "See your lunch in your editor!",
+  "version": "0.1.4",
+  "publisher": "ysilavi",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sttatusx/basalam-tahdig.git"
+  },
+  "engines": {
+    "vscode": "^1.61.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "basalam-tahdig.refresh_api",
+        "title": "Refresh @Basalam/tahdig result"
+      },
+      {
+        "command": "basalam-tahdig.change_api",
+        "title": "Change @Basalam/tahdig api"
+      }
+    ]
+  },
+  "author": "Yasin Silavi <ys.silavi@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "14.x",
+    "@types/vscode": "^1.61.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "eslint": "^7.32.0",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "axios": "^0.21.4"
+  }
+}
