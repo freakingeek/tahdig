@@ -14,6 +14,8 @@ export async function activate(context: vscode.ExtensionContext) {
   statusBar.text = lunch || "!ناهار نداریم";
   statusBar.show();
 
+  functions.remindReserveLunch();
+
   // Commands
   let refreshApi = vscode.commands.registerCommand(
     "basalam-tahdig.refresh_api",

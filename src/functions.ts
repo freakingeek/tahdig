@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as path from "path";
 import { homedir } from "os";
-import { window } from "vscode";
+import { window, env, Uri } from "vscode";
 import { existsSync, readFileSync, writeFile, unlink } from "fs";
 
 export async function handleUserApiKey() {
@@ -101,5 +101,25 @@ export async function getTodayLunch(apiKey: ApiKey = "") {
     console.error("[getTodayLunch]", error);
 
     return "مشکلی پیش آمده";
+  }
+}
+
+export async function remindReserveLunch() {
+  const now = new Date();
+
+  if (now.getDay() === 3) { // if its thursday (panjshanbe)
+    const options = [
+      {
+        title: 'رزرو',
+        shouldOpen: true
+      }, {
+        title: 'میخوام گشنه بمونم',
+        shouldOpen: false
+      }
+    ];
+
+    const res = await window.showWarningMessage('رزرو ناهار هفته بعد یادت نره !', ...options);
+    
+    if (res?.shouldOpen) env.openExternal(Uri.parse('https://basalamiha.ir/lunch/reserve'));
   }
 }
