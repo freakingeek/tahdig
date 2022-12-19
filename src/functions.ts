@@ -23,7 +23,7 @@ export async function getApiKeyFromUser() {
   return await window.showInputBox({
     prompt: "Enter your tahdig api key",
     placeHolder:
-      "Enter your tahdig api key from http://basalamiha.ir/setting/tokens",
+      "Enter your tahdig api key from http://basalamiha.com/setting/tokens",
     value: "",
     ignoreFocusOut: true,
   });
@@ -90,7 +90,7 @@ export async function generateConfigFile(config: Config) {
 
 export async function getTodayLunch(apiKey: ApiKey = "") {
   try {
-    const res = await axios.get("https://basalamiha.ir/api/v1/lunch/today", {
+    const res = await axios.get("https://basalamiha.com/api/v1/lunch/today", {
       headers: {
         Authorization: `Bearer ${apiKey.replace(/\n/g, "")}`,
       },
@@ -120,6 +120,6 @@ export async function remindReserveLunch() {
 
     const res = await window.showWarningMessage('رزرو ناهار هفته بعد یادت نره !', ...options);
     
-    if (res?.shouldOpen) env.openExternal(Uri.parse('https://basalamiha.ir/lunch/reserve'));
+    if (res?.shouldOpen) env.openExternal(Uri.parse('https://basalamiha.com/lunch/reserve'));
   }
 }
