@@ -4,7 +4,7 @@
   "description": "See your lunch in your editor!",
   "version": "0.1.4",
   "publisher": "ysilavi",
-  "icon": "images/icon.png",
+  "icon": "src/assets/images/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/sttatusx/basalam-tahdig.git"
