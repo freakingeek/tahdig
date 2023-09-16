@@ -1,5 +1,6 @@
+import { handleUserToken } from "./utils/user";
 import { StatusBarItem, commands } from "vscode";
-import { getTodayLunch, handleUserApiKey, removeConfigFile } from "./functions";
+import { getTodayLunch, removeConfigFile } from "./functions";
 
 export async function refreshLunchApi(
   statusBar: StatusBarItem,
@@ -17,7 +18,7 @@ export async function refreshLunchApi(
 
 export async function changeApiKey() {
   await removeConfigFile();
-  await handleUserApiKey();
+  await handleUserToken();
 
   commands.executeCommand("workbench.action.reloadWindow");
 }

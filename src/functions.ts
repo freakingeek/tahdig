@@ -3,33 +3,6 @@ import { unlink } from "fs";
 import * as path from "path";
 import { homedir } from "os";
 import { window, env, Uri } from "vscode";
-import {
-  isConfigFileExist,
-  readConfigFile,
-  createConfigFile,
-} from "./utils/config";
-
-export async function handleUserApiKey() {
-  if (await isConfigFileExist()) {
-    const configs = await readConfigFile();
-    return configs.token;
-  }
-  
-  let token: ApiKey = await getApiKeyFromUser();
-  await createConfigFile({ token });
-  
-  return token;
-}
-
-export async function getApiKeyFromUser() {
-  return await window.showInputBox({
-    prompt: "Enter your tahdig api key",
-    placeHolder:
-      "Enter your tahdig api key from http://basalamiha.com/setting/tokens",
-    value: "",
-    ignoreFocusOut: true,
-  });
-}
 
 export async function removeConfigFile() {
   const userHome = homedir();
