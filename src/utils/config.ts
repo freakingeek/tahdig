@@ -31,3 +31,12 @@ export async function readConfigFile(): Promise<Configs> {
 export async function createConfigFile(configs: Configs) {
   await fs.writeFile(CONFIG_FILE_PATH, JSON.stringify(configs));
 }
+
+/**
+ * Deletes the configuration file at the specified path.
+ * @async
+ */
+
+export async function deleteConfigFile() {
+  await fs.unlink(CONFIG_FILE_PATH);
+}

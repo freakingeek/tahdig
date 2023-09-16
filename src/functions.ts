@@ -1,19 +1,5 @@
 import axios from "axios";
-import { unlink } from "fs";
-import * as path from "path";
-import { homedir } from "os";
 import { window, env, Uri } from "vscode";
-
-export async function removeConfigFile() {
-  const userHome = homedir();
-  const configPath = path.join(userHome, ".tahdig.cfg");
-
-  await unlink(configPath, (error) => {
-    if (error) {
-      return console.error("Error:", error);
-    }
-  });
-}
 
 export async function getTodayLunch(apiKey: ApiKey = "") {
   try {
