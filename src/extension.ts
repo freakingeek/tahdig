@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { Token } from "./types/user";
-// import * as commands from "./commands";
 import { handleUserToken } from "./utils/user";
+import { refreshResult, replaceToken } from "./commands";
 import { fetchTodaysLunch } from "./apis/fetchTodaysLunch";
 
 // Bottom menu in vscode
@@ -19,17 +19,17 @@ export async function activate(context: vscode.ExtensionContext) {
   // functions.remindReserveLunch();
 
   // Commands
-  // let refreshApi = vscode.commands.registerCommand(
-  //   "basalam-tahdig.refresh_api",
-  //   commands.refreshLunchApi.bind({}, statusBar, apiKey)
-  // );
+  let refreshApi = vscode.commands.registerCommand(
+    "basalam-tahdig.refresh_api",
+    refreshResult.bind({}, statusBar, token)
+  );
 
-  // const changeApiKey = vscode.commands.registerCommand(
-  //   "basalam-tahdig.change_api",
-  //   commands.changeApiKey
-  // );
+  const changeApiKey = vscode.commands.registerCommand(
+    "basalam-tahdig.change_api",
+    replaceToken
+  );
 
-  // context.subscriptions.push(refreshApi, changeApiKey);
+  context.subscriptions.push(refreshApi, changeApiKey);
 }
 
 // export function deactivate() {}
