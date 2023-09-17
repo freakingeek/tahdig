@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo][logo]
+<img src="https://github.com/sttatusx/tahdig/blob/master/src/assets/images/icon.png" alt="Tahdig Logo" width="256" />
 
 <br />
 
@@ -19,7 +19,6 @@ Created with :heart: and :coffee: by the [Basalam](https://basalam.com/) develop
 </div>
 
 
-[logo]: https://github.com/sttatusx/tahdig/blob/master/src/assets/images/icon.png
 [release-badge]: https://img.shields.io/github/v/release/sttatusx/tahdig?label=RELEASE&style=flat-square
 [issues-badge]: https://img.shields.io/github/issues/sttatusx/tahdig?color=blue&label=ISSUES&style=flat-square
 [license-badge]: https://img.shields.io/github/license/sttatusx/tahdig?color=blue&label=LICENSE&style=flat-square
