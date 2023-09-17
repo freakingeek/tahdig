@@ -1,5 +1,5 @@
 import { Token } from "../types/user";
-import { StatusBarItem, commands } from "vscode";
+import { StatusBarItem } from "vscode";
 import { fetchTodaysLunch } from "../apis/fetchTodaysLunch";
 
 async function refreshResult(statusBar: StatusBarItem, token: Token) {
