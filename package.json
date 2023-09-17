@@ -2,7 +2,7 @@
   "name": "basalam-tahdig",
   "displayName": "@Basalam/tahdig",
   "description": "See your lunch in your editor!",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "publisher": "ysilavi",
   "icon": "src/assets/images/icon.png",
   "repository": {
