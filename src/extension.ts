@@ -2,8 +2,8 @@ import * as vscode from "vscode";
 import { Token } from "./types/user";
 import { handleUserToken } from "./utils/user";
 import { setReserveReminder } from "./utils/reminder";
-import { refreshResult, replaceToken } from "./commands";
 import { fetchTodaysLunch } from "./apis/fetchTodaysLunch";
+import { refreshResult, replaceToken } from "./commands/index";
 
 // Bottom menu in vscode
 const statusBar = vscode.window.createStatusBarItem(
