@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { Token } from "./types/user";
 import { handleUserToken } from "./utils/user";
+import { setReserveReminder } from "./utils/reminder";
 import { refreshResult, replaceToken } from "./commands";
 import { fetchTodaysLunch } from "./apis/fetchTodaysLunch";
 
@@ -16,7 +17,8 @@ export async function activate(context: vscode.ExtensionContext) {
   statusBar.text = lunch || "!ناهار نداریم";
   statusBar.show();
 
-  // functions.remindReserveLunch();
+  // Set reserve reminder
+  setReserveReminder();
 
   // Commands
   let refreshApi = vscode.commands.registerCommand(
