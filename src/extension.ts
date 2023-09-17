@@ -1,6 +1,9 @@
 import * as vscode from "vscode";
-import * as commands from "./commands";
-import * as functions from "./functions";
+import { Token } from "./types/user";
+import { handleUserToken } from "./utils/user";
+import { setReserveReminder } from "./utils/reminder";
+import { fetchTodaysLunch } from "./apis/fetchTodaysLunch";
+import { refreshResult, replaceToken } from "./commands/index";
 
 // Bottom menu in vscode
 const statusBar = vscode.window.createStatusBarItem(
@@ -8,23 +11,24 @@ const statusBar = vscode.window.createStatusBarItem(
 );
 
 export async function activate(context: vscode.ExtensionContext) {
-  const apiKey: ApiKey = await functions.handleUserApiKey();
-  const lunch: string = await functions.getTodayLunch(apiKey);
+  const token: Token = await handleUserToken();
+  const lunch = await fetchTodaysLunch(token);
 
   statusBar.text = lunch || "!ناهار نداریم";
   statusBar.show();
 
-  functions.remindReserveLunch();
+  // Set reserve reminder
+  setReserveReminder();
 
   // Commands
   let refreshApi = vscode.commands.registerCommand(
     "basalam-tahdig.refresh_api",
-    commands.refreshLunchApi.bind({}, statusBar, apiKey)
+    refreshResult.bind({}, statusBar, token)
   );
 
   const changeApiKey = vscode.commands.registerCommand(
     "basalam-tahdig.change_api",
-    commands.changeApiKey
+    replaceToken
   );
 
   context.subscriptions.push(refreshApi, changeApiKey);
