@@ -6,7 +6,7 @@
 
 # Tahdig
 See your lunch in your editor  
-Created with :heart: and :coffee: by the [Basalam](https://basalam.com/) developers
+Created with :heart: and :coffee: for the [Basalam](https://basalam.com/) developers
 
 <br />
 
